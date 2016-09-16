@@ -32,7 +32,7 @@ let Game = React.createClass({
         </div>
         <div className="btnContainer2">
           <button className="btn btn-danger btn-md col-xs-6" onClick={this.reset}>Reset</button>
-          <button className="btn btn-primary btn-md col-xs-6">Skip</button>
+          <button className="btn btn-primary btn-md col-xs-6" onClick={this.skip}>Skip</button>
         </div>
       </div>
       );
@@ -90,6 +90,17 @@ let Game = React.createClass({
     });
     this.clearNum();
     this.randomNum();
+  },
+
+  skip() {
+    let numTotal = this.state.num1 + this.state.num2;
+    let notifier = document.getElementById("answer");
+    this.clearNum();
+    this.randomNum();
+    notifier.innerHTML = "The Answer Was</br>" + numTotal;
+    setTimeout(function() {
+      notifier.innerHTML = '';
+    },1200);
   }
 
 }); //END of Game component
