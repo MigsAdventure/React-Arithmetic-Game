@@ -16,7 +16,7 @@ let Game = React.createClass({
         <h2>Can you add these numbers?</h2><span id="score">Score: {count}</span>
         <h1 id="answer"></h1>
         <h3>{this.state.num1} + {this.state.num2} = <span><input className="answerInput" ref="answer" value={answer} type="number" onChange={this.getVal}/></span></h3>
-        <div className="BtnContainer text-center">
+        <div className="BtnContainer text-center">cd 
          <button className="btn btn-md btn-primary numBtn col-xs-4" id = "1" onClick={this.btnPress}>1</button>
          <button className="btn btn-md btn-primary numBtn col-xs-4" id="2" onClick={this.btnPress}>2</button>
          <button className="btn btn-md btn-primary numBtn col-xs-4" id="3" onClick={this.btnPress}>3</button>
@@ -45,7 +45,7 @@ let Game = React.createClass({
   },
 
   getVal(e) {
-     let answer = this.refs.answer.value;
+     let answer = this.refs.jon.value;
        this.setState({answer: answer + e.target.id}); 
   },
 
