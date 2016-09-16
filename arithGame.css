@@ -20,7 +20,7 @@ h3 {
   padding: 10px;
 }
 
-button {
+.numBtn {
   font-size:2em;
   border:1px solid black;
 }
@@ -32,4 +32,8 @@ button {
 
 input.answerInput {
   width:3em;
+}
+
+#score {
+  font-size:1.5em;
 }

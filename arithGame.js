@@ -1,17 +1,19 @@
 let Game = React.createClass({
   getInitialState() {
         return {
-      num1: (Math.floor(Math.random() * 10)),
-      num2: (Math.floor(Math.random() * 10)),
-      answer: ''
+      num1: (Math.floor(Math.random() * 25)),
+      num2: (Math.floor(Math.random() * 25)),
+      answer: '',
+      count: 0
     }
   },
 
   render() {
     let {answer} = this.state;
+    let count = this.state.count;
     return (     
       <div>
-        <h2>Can you add these numbers?</h2>
+        <h2>Can you add these numbers?</h2><span id="score">Score: {count}</span>
         <h1 id="answer"></h1>
         <h3>{this.state.num1} + {this.state.num2} = <span><input className="answerInput" ref="answer" value={answer} type="number" onChange={this.getVal}/></span></h3>
         <div className="BtnContainer text-center">
@@ -28,8 +30,16 @@ let Game = React.createClass({
          <button className="btn btn-md btn-primary numBtn col-xs-4" id="0" onClick={this.btnPress}>0</button>
          <button className="btn btn-md btn-success numBtn col-xs-4" onClick={this.submitAnswer}>Submit</button>
         </div>
+        
+       
       </div>
       );
+  },
+
+  addScore(){
+    this.setState({
+      count: this.state.count + 1
+    });
   },
 
   getVal(e) {
@@ -56,6 +66,7 @@ let Game = React.createClass({
     let notifier = document.getElementById("answer");
     if (userAnswer === numTotal) {
       notifier.innerHTML = "Good Job!</br>" + numTotal;
+      this.addScore();
     } else {
       notifier.innerHTML = "INCORRECT</br> The correct answer is: " + numTotal;
     }
