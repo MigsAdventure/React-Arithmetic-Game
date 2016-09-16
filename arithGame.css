@@ -20,14 +20,18 @@ h3 {
   padding: 10px;
 }
 
-.numBtn {
+.btn{
   font-size:2em;
   border:1px solid black;
 }
 
-.BtnContainer {
+.BtnContainer, .btnContainer2 {
   width: 50%;
   margin: 0 auto;
+}
+
+.btnContainer2 {
+  margin-top: 1em;
 }
 
 input.answerInput {

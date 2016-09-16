@@ -30,8 +30,10 @@ let Game = React.createClass({
          <button className="btn btn-md btn-primary numBtn col-xs-4" id="0" onClick={this.btnPress}>0</button>
          <button className="btn btn-md btn-success numBtn col-xs-4" onClick={this.submitAnswer}>Submit</button>
         </div>
-        
-       
+        <div className="btnContainer2">
+          <button className="btn btn-danger btn-md col-xs-6" onClick={this.reset}>Reset</button>
+          <button className="btn btn-primary btn-md col-xs-6">Skip</button>
+        </div>
       </div>
       );
   },
@@ -80,7 +82,14 @@ let Game = React.createClass({
   btnPress(e) {
     this.getVal(e);
     console.log(e.target.id);
-  
+  },
+
+  reset() {
+    this.setState({
+      count: 0
+    });
+    this.clearNum();
+    this.randomNum();
   }
 
 }); //END of Game component
