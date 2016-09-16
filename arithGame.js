@@ -45,7 +45,7 @@ let Game = React.createClass({
   },
 
   getVal(e) {
-     let answer = this.refs.jon.value;
+     let answer = this.refs.answer.value;
        this.setState({answer: answer + e.target.id}); 
   },
 
@@ -95,9 +95,9 @@ let Game = React.createClass({
   skip() {
     let numTotal = this.state.num1 + this.state.num2;
     let notifier = document.getElementById("answer");
+    notifier.innerHTML = "The Answer Was</br>" + numTotal;
     this.clearNum();
     this.randomNum();
-    notifier.innerHTML = "The Answer Was</br>" + numTotal;
     setTimeout(function() {
       notifier.innerHTML = '';
     },1200);
